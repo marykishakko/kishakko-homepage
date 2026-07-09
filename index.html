@@ -8,6 +8,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Hachi+Maru+Pop&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+  /* 本日の開催状況用の追加デザイン */
+  .today-status-box {
+    background: #fff;
+    border: 3px dashed #52704f;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    max-width: 500px;
+  }
+  .today-status-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  .today-status-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
+  .yearly-empty {
+    color: #888;
+    font-style: italic;
+  }
+</style>
 </head>
 <body>
 
@@ -33,7 +59,14 @@
     <span class="eyebrow">団体名:きしゃっこ</span>
     <h1 class="title">ぽっぽひろば</h1>
     <p class="sub">おもちゃの広場を中心に、音楽・ダンス・工作など、親子や多世代で「あそぶ」を楽しむ場をつくっています。詳しい情報は少しずつ更新していきます。</p>
-    <div class="sns-row">
+    
+    <!-- 📢 本日の開催状況の表示エリア -->
+    <div class="today-status-box">
+      <div class="today-status-label">ー 本日の開催状況 ー</div>
+      <div class="today-status-value" id="today-status">読み込み中…</div>
+    </div>
+
+    <div class="sns-row" style="margin-top: 20px;">
       <a class="sns-pin" href="#">📷 Instagram <span class="badge-tbd">準備中</span></a>
       <a class="sns-pin" href="https://lin.ee/PmQzbfr" target="_blank" rel="noopener">💬 公式LINE</a>
     </div>
@@ -41,6 +74,14 @@
 </div>
 
 <div class="wrap">
+
+  <!-- 📅 今月の年間予定（今月分を自動抽出して表示） -->
+  <section class="yearly-schedule-section">
+    <h2 class="section-title" id="yearly-title">今月の予定</h2>
+    <div class="news-list" id="yearly-list">
+      <p class="yearly-empty">読み込み中…</p>
+    </div>
+  </section>
 
   <section class="news">
     <h2 class="section-title">お知らせ</h2>
@@ -157,6 +198,48 @@
 </footer>
 
 <script>
+// 📢 本日の開催状況を data/status.json から読み込んで表示
+fetch('data/status.json')
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    var status = (data && data.current) || "🟢 本日開催";
+    document.getElementById('today-status').innerText = status;
+  })
+  .catch(function(){
+    document.getElementById('today-status').innerText = "🟢 本日開催";
+  });
+
+// 📅 年間予定を data/yearly.json から読み込んで「今月分」だけを自動表示
+var currentMonth = new Date().getMonth() + 1; // 現在の月（1〜12）
+document.getElementById('yearly-title').innerText = currentMonth + '月の予定（年間予定より）';
+
+fetch('data/yearly.json')
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    var items = (data && data.items) || [];
+    var list = document.getElementById('yearly-list');
+    
+    // 今月のデータだけを絞り込む
+    var thisMonthItems = items.filter(function(item){
+      return parseInt(item.month) === currentMonth;
+    });
+
+    if(thisMonthItems.length === 0){
+      list.innerHTML = '<p class="yearly-empty">今月の定期予定はありません。</p>';
+      return;
+    }
+
+    list.innerHTML = thisMonthItems.map(function(item){
+      return '<div class="news-item" style="border-left: 4px solid #a97e4d; padding-left: 10px; margin-bottom: 15px;">' +
+        '<div class="title" style="font-weight: bold; font-size: 1.1rem;">' + (item.title || '') + '</div>' +
+        '<div class="body" style="font-size: 0.9rem; color: #555; white-space: pre-wrap; margin-top: 4px;">' + (item.detail || '') + '</div>' +
+      '</div>';
+    }).join('');
+  })
+  .catch(function(){
+    document.getElementById('yearly-list').innerHTML = '<p class="yearly-empty">年間予定を読み込めませんでした。</p>';
+  });
+
 // お知らせを data/news.json から読み込んで表示
 fetch('data/news.json')
   .then(function(res){ return res.json(); })
