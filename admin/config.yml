@@ -7,6 +7,22 @@ public_folder: "images"
 
 collections:
 
+  - name: "today_status"
+    label: "📢 本日の開催状況"
+    files:
+      - name: "status"
+        label: "現在のステータス"
+        file: "data/status.json"
+        fields:
+          - label: "本日の状況"
+            name: "current"
+            widget: "select"
+            options:
+              - { label: "🟢 本日開催", value: "🟢 本日開催" }
+              - { label: "🔴 本日は中止", value: "🔴 本日は中止" }
+              - { label: "⚠️ 開催（雨天中止）", value: "⚠️ 開催（雨天中止）" }
+            default: "🟢 本日開催"
+
   - name: "news"
     label: "お知らせ"
     files:
@@ -34,6 +50,29 @@ collections:
           - label: "開催予定一覧"
             name: "items"
             widget: "list"
+            label_singular: "予定"
+            summary: "{{date}} {{title}}"
+            fields:
+              - { label: "日付(例:2026-08-01 または 調整中)", name: "date", widget: "string" }
+              - { label: "内容", name: "title", widget: "string" }
+              - { label: "場所", name: "place", widget: "string", required: false }
+
+  - name: "yearly_schedule"
+    label: "📅 年間予定"
+    files:
+      - name: "yearly"
+        label: "年間予定一覧"
+        file: "data/yearly.json"
+        fields:
+          - label: "年間予定"
+            name: "items"
+            widget: "list"
+            label_singular: "年間予定"
+            summary: "{{month}}月: {{title}}"
+            fields:
+              - { label: "対象の月 (数字のみ)", name: "month", widget: "number", value_type: "int", min: 1, max: 12 }
+              - { label: "予定のタイトル", name: "title", widget: "string" }
+              - { label: "詳細（時間や持ち物など）", name: "detail", widget: "text", required: false }
             label_singular: "予定"
             summary: "{{date}} {{title}}"
             fields:
