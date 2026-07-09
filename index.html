@@ -1,12 +1,220 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ぽっぽひろば 管理画面</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ぽっぽひろば(きしゃっこ)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Hachi+Maru+Pop&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<div class="hero">
+  <svg class="hero-illustration" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="70" cy="18" r="7" stroke="#52704f" stroke-width="2"/>
+    <circle cx="86" cy="10" r="9" stroke="#52704f" stroke-width="2"/>
+    <circle cx="106" cy="6" r="11" stroke="#52704f" stroke-width="2"/>
+    <rect x="58" y="34" width="12" height="18" rx="2" stroke="#35302a" stroke-width="2"/>
+    <rect x="30" y="52" width="80" height="34" rx="6" stroke="#35302a" stroke-width="2"/>
+    <rect x="18" y="70" width="20" height="16" rx="3" stroke="#35302a" stroke-width="2"/>
+    <path d="M92 52 L92 40 L110 40 L110 52" stroke="#35302a" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="45" cy="94" r="9" stroke="#35302a" stroke-width="2"/>
+    <circle cx="75" cy="94" r="9" stroke="#35302a" stroke-width="2"/>
+    <circle cx="100" cy="94" r="9" stroke="#35302a" stroke-width="2"/>
+    <line x1="110" y1="80" x2="128" y2="80" stroke="#35302a" stroke-width="2"/>
+    <rect x="128" y="58" width="64" height="28" rx="4" stroke="#35302a" stroke-width="2"/>
+    <circle cx="145" cy="94" r="8" stroke="#35302a" stroke-width="2"/>
+    <circle cx="175" cy="94" r="8" stroke="#35302a" stroke-width="2"/>
+    <line x1="10" y1="103" x2="230" y2="103" stroke="#a97e4d" stroke-width="2"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">団体名:きしゃっこ</span>
+    <h1 class="title">ぽっぽひろば</h1>
+    <p class="sub">おもちゃの広場を中心に、音楽・ダンス・工作など、親子や多世代で「あそぶ」を楽しむ場をつくっています。詳しい情報は少しずつ更新していきます。</p>
+    <div class="sns-row">
+      <a class="sns-pin" href="#">📷 Instagram <span class="badge-tbd">準備中</span></a>
+      <a class="sns-pin" href="https://lin.ee/PmQzbfr" target="_blank" rel="noopener">💬 公式LINE</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="news">
+    <h2 class="section-title">お知らせ</h2>
+    <div class="news-list" id="news-list">
+      <p class="news-empty">読み込み中…</p>
+    </div>
+  </section>
+
+  <section class="schedule">
+    <h2 class="section-title">開催予定</h2>
+    <div class="schedule-list" id="schedule-list">
+      <p class="schedule-empty">読み込み中…</p>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2 class="section-title">サークルについて</h2>
+    <p>対象は0歳から120歳。小さなお子さんから大人まで、長く関わり続けられる場所を目指しています。</p>
+    <p>通常活動は平日午前中、「たいむりーぷ」を講師としてお招きし、おもちゃの広場をメインに実施しています。長期休みには、親子で楽しめる企画をイベントとして行う予定です。</p>
+  </section>
+
+  <section class="corners">
+    <h2 class="section-title">コーナー紹介</h2>
+    <div class="corkboard">
+      <div class="card-grid">
+
+        <div class="note-card">
+          <h3>まりぃ先生のおもちゃの広場(たいむりーぷmamaMary)</h3>
+          <div class="teacher">担当:まりぃ先生(たいむりーぷmamaMary)</div>
+          <p class="desc">グッドトイなど良質なおもちゃで自由に遊べる、ぽっぽひろばのメイン活動です。</p>
+        </div>
+
+        <div class="note-card">
+          <h3>ゆりか先生のおとのば</h3>
+          <div class="teacher">担当:ゆりか先生</div>
+          <p class="desc">音楽遊びのコーナー。今後開催予定です。</p>
+          <span class="stamp">開始時期未定</span>
+        </div>
+
+        <div class="note-card">
+          <h3>ちぐさ先生のパークダンス</h3>
+          <div class="teacher">担当:ちぐさ先生</div>
+          <p class="desc">からだを動かすダンスのコーナー。今後開催予定です。</p>
+          <span class="stamp">開始時期未定</span>
+        </div>
+
+        <div class="note-card">
+          <h3>工作や読み聞かせのコーナーも検討中</h3>
+          <div class="teacher">担当:ゆりか先生、まりぃ先生(たいむりーぷmamaMary)</div>
+          <p class="desc">詳しい内容・開始時期は今後検討していきます。</p>
+          <span class="stamp">検討中</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="teachers">
+    <h2 class="section-title">先生紹介</h2>
+    <div class="teacher-grid">
+
+      <div class="teacher-card">
+        <div class="avatar">ま</div>
+        <h3>まりぃ先生(たいむりーぷmamaMary)</h3>
+        <div class="role">たいむりーぷ 代表 / おもちゃの広場 担当</div>
+        <p>東京おもちゃ美術館学芸員、おもちゃコンサルタント、おもちゃインストラクター。幼稚園・小学校の免許、保育士資格所持。4児の現役子育て中ママ。親子向けイベントの企画運営を不定期で行っている。さがみはら子育て支援者ネットワークに登録。</p>
+      </div>
+
+      <div class="teacher-card">
+        <div class="avatar">ゆ</div>
+        <h3>ゆりか先生</h3>
+        <div class="role">担当:音楽遊び(おとのば)予定</div>
+        <p>プロフィール詳細は決まり次第公開します。</p>
+      </div>
+
+      <div class="teacher-card">
+        <div class="avatar">ち</div>
+        <h3>ちぐさ先生</h3>
+        <div class="role">担当:ダンス(パークダンス)予定</div>
+        <p>5歳からクラシックバレエを習い、その後ジャズダンス・タップダンスなどを学ぶ。大手テーマパークでダンサーとして10年間出演後、スポーツジムのエクササイズインストラクターに転身。その経験を生かし、笑顔になれるレッスンをお届けします。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 class="section-title">お問い合わせ</h2>
+    <p>ご質問・お申し込みは公式LINEからお気軽にどうぞ。</p>
+    <p><a class="sns-pin" href="https://lin.ee/PmQzbfr" target="_blank" rel="noopener" style="transform:none;">💬 公式LINEはこちら</a></p>
+  </section>
+
+  <section class="membership">
+    <h2 class="section-title">会員募集について</h2>
+    <div class="status-row">
+      <div class="status-card">
+        <span class="status-tag open">募集中</span>
+        <h3>参加会員</h3>
+        <p>随時募集しています。単発参加も歓迎です。参加登録された方には公式LINEまたはオープンチャットにご登録いただき、イベントのご案内や当日急なお休みなどの連絡をお届けします。</p>
+        <p style="margin-top:8px;">基本的にお手伝いをお願いすることはありませんが、大掃除やイベント当日など、人手が必要な場面でお声がけすることがあります。</p>
+      </div>
+      <div class="status-card closed">
+        <span class="status-tag closed">現在募集していません</span>
+        <h3>講師・運営会員</h3>
+        <p>現在は募集を行っておりません。今後の状況により募集を開始する場合があります。</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>きしゃっこ / ぽっぽひろば</div>
+  <div class="note">※このページは準備中です。内容は今後随時更新されます。</div>
+</footer>
+
+<script>
+// お知らせを data/news.json から読み込んで表示
+fetch('data/news.json')
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    var items = (data && data.items) || [];
+    var list = document.getElementById('news-list');
+    if(items.length === 0){
+      list.innerHTML = '<p class="news-empty">現在お知らせはありません。</p>';
+      return;
+    }
+    items.sort(function(a,b){ return (b.date||'').localeCompare(a.date||''); });
+    list.innerHTML = items.map(function(item){
+      return '<div class="news-item">' +
+        '<div class="date">' + (item.date || '') + '</div>' +
+        '<div class="title">' + (item.title || '') + '</div>' +
+        '<div class="body">' + (item.body || '') + '</div>' +
+      '</div>';
+    }).join('');
+  })
+  .catch(function(){
+    document.getElementById('news-list').innerHTML = '<p class="news-empty">お知らせを読み込めませんでした。</p>';
+  });
+
+// 開催予定を data/schedule.json から読み込んで表示
+fetch('data/schedule.json')
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    var items = (data && data.items) || [];
+    var list = document.getElementById('schedule-list');
+    if(items.length === 0){
+      list.innerHTML = '<p class="schedule-empty">現在、開催予定の情報はありません。</p>';
+      return;
+    }
+    list.innerHTML = items.map(function(item){
+      return '<div class="schedule-item">' +
+        '<div class="date">' + (item.date || '') + '</div>' +
+        '<div>' +
+          '<div class="title">' + (item.title || '') + '</div>' +
+          '<div class="place">' + (item.place || '') + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  })
+  .catch(function(){
+    document.getElementById('schedule-list').innerHTML = '<p class="schedule-empty">開催予定を読み込めませんでした。</p>';
+  });
+</script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user){
+      if (!user) {
+        window.netlifyIdentity.on("login", function(){
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
