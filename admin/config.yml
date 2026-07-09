@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "images"
+
+collections:
+
+  - name: "news"
+    label: "お知らせ"
+    files:
+      - name: "news"
+        label: "お知らせ一覧"
+        file: "data/news.json"
+        fields:
+          - label: "お知らせ一覧"
+            name: "items"
+            widget: "list"
+            label_singular: "お知らせ"
+            summary: "{{date}} {{title}}"
+            fields:
+              - { label: "日付", name: "date", widget: "date", format: "YYYY-MM-DD" }
+              - { label: "タイトル", name: "title", widget: "string" }
+              - { label: "本文", name: "body", widget: "text" }
+
+  - name: "schedule"
+    label: "開催予定"
+    files:
+      - name: "schedule"
+        label: "開催予定一覧"
+        file: "data/schedule.json"
+        fields:
+          - label: "開催予定一覧"
+            name: "items"
+            widget: "list"
+            label_singular: "予定"
+            summary: "{{date}} {{title}}"
+            fields:
+              - { label: "日付(例:2026-08-01 または 調整中)", name: "date", widget: "string" }
+              - { label: "内容", name: "title", widget: "string" }
+              - { label: "場所", name: "place", widget: "string", required: false }
