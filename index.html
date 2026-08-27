@@ -192,12 +192,14 @@ fetch('data/schedule.json')
     }
     list.innerHTML = items.map(function(item){
       return '<div class="schedule-item">' +
-        '<div class="date">' + (item.date || '') + '</div>' +
-        '<div>' +
-          '<div class="title">' + (item.title || '') + '</div>' +
-          '<div class="place">' + (item.place || '') + '</div>' +
-        '</div>' +
-      '</div>';
+  '<div class="date">' + (item.date || '') + '</div>' +
+  '<div class="title">' + (item.title || '') + '</div>' +
+  '<div class="time">🕒 ' + (item.time || '') + '</div>' +
+  '<div class="place">📍 ' + (item.place || '') + '</div>' +
+  '<div class="price">💰 ' + (item.price || '') + '</div>' +
+  '<div class="note">' + (item.note || '') + '</div>' +
+'</div>';
+
     }).join('');
   })
   .catch(function(){
