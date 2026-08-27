@@ -6,36 +6,36 @@ media_folder: "images"
 public_folder: "images"
 
 collections:
-  - name: "news"
+  - name: "news_collection"
     label: "お知らせ"
     files:
       - name: "news_file"
         label: "お知らせ一覧"
         file: "data/news.json"
         fields:
-          - label: "お知らせ一覧"
+          - label: "お知らせリスト"
             name: "items"
             widget: "list"
             summary: "{{fields.date}} {{fields.title}}"
             fields:
-    　　　　　　- label: "日付"
-    　　　　　　　　name: "date"
-    　　　　　　　　widget: "string"
-    　　　　　　- label: "タイトル"
-    　　　　　　　　name: "title"
-    　　　　　　　　widget: "string"
-    　　　　　　- label: "本文"
-    　　　　name: "body"
-    　　　　widget: "text"
+              - label: "日付"
+                name: "date"
+                widget: "string"
+              - label: "タイトル"
+                name: "title"
+                widget: "string"
+              - label: "本文"
+                name: "body"
+                widget: "text"
 
-  - name: "schedule"
+  - name: "schedule_collection"
     label: "開催予定"
     files:
       - name: "schedule_file"
         label: "開催予定一覧"
         file: "data/schedule.json"
         fields:
-          - label: "開催予定一覧"
+          - label: "開催予定リスト"
             name: "items"
             widget: "list"
             summary: "{{fields.date}} {{fields.title}}"
@@ -63,14 +63,14 @@ collections:
                 widget: "text"
                 required: false
 
-  - name: "yearly_schedule"
+  - name: "yearly_collection"
     label: "年間予定"
     files:
       - name: "yearly_file"
         label: "年間予定リスト"
         file: "data/yearly.json"
         fields:
-          - label: "年間予定の登録"
+          - label: "年間予定リスト"
             name: "items"
             widget: "list"
             summary: "{{fields.month}}月: {{fields.title}}"
