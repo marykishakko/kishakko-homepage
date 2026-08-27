@@ -23,7 +23,6 @@ collections:
               - { label: "日付", name: "date", widget: "string" }
               - { label: "タイトル", name: "title", widget: "string" }
               - { label: "本文", name: "body", widget: "text" }
-
   - name: "schedule"
     label: "開催予定"
     files:
@@ -36,13 +35,13 @@ collections:
             widget: "list"
             label_singular: "予定"
             summary: "{{date}} {{title}}"
-            fields:
-              - { label: "日にち", name: "date", widget: "string" }
-              - { label: "時間", name: "time", widget: "string", required: false }
-              - { label: "場所", name: "place", widget: "string", required: false }
-              - { label: "内容", name: "title", widget: "string" }
-              - { label: "料金", name: "price", widget: "string", required: false }
-              - { label: "備考", name: "note", widget: "text", required: false }
+        fields:
+          - { label: "日にち", name: "date", widget: "string" }
+          - { label: "時間", name: "time", widget: "string", required: false }
+          - { label: "場所", name: "place", widget: "string", required: false }
+          - { label: "内容", name: "title", widget: "string" }
+          - { label: "料金", name: "price", widget: "string", required: false }
+          - { label: "備考", name: "note", widget: "text", required: false }
 
   - name: "yearly_schedule"
     label: "📅 年間予定"
