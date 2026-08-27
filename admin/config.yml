@@ -7,22 +7,6 @@ public_folder: "images"
 
 collections:
 
-  - name: "today_status"
-    label: "📢 本日の開催状況"
-    files:
-      - name: "status"
-        label: "現在のステータス"
-        file: "data/status.json"
-        fields:
-          - label: "本日の状況"
-            name: "current"
-            widget: "select"
-            options:
-              - { label: "🟢 本日開催", value: "🟢 本日開催" }
-              - { label: "🔴 本日はお休み", value: "🔴 本日はお休み" }
-              - { label: "⚠️ 開催（雨天中止）", value: "⚠️ 開催（雨天中止）" }
-            default: "🟢 本日開催"
-
   - name: "news"
     label: "お知らせ"
     files:
