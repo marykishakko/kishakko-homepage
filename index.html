@@ -170,7 +170,7 @@ fetch('data/news.json')
       return '<div class="news-item">' +
         '<div class="date">' + (item.date || '') + '</div>' +
         '<div class="title">' + (item.title || '') + '</div>' +
-        '<div class="body">' + (item.body || '') + '</div>' +
+        '<div class="body">' + (item.body || '').replace(/\n/g,'<br>') + '</div>' +
       '</div>';
     }).join('');
   })
