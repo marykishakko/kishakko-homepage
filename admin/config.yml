@@ -44,7 +44,7 @@ collections:
               - { label: "備考", name: "note", widget: "text", required: false }
 
   - name: "yearly_schedule"
-    label: "📅 年間予定"
+    label: "年間予定"
     files:
       - name: "yearly"
         label: "年間予定リスト"
