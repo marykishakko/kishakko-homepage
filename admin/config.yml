@@ -9,53 +9,82 @@ collections:
   - name: "news"
     label: "お知らせ"
     files:
-      - name: "news"
+      - name: "news_file"
         label: "お知らせ一覧"
         file: "data/news.json"
         fields:
           - label: "お知らせ一覧"
             name: "items"
             widget: "list"
-            label_singular: "お知らせ"
-            summary: "{{date}} {{title}}"
+            summary: "{{fields.date}} {{fields.title}}"
             fields:
-              - { label: "日付", name: "date", widget: "string" }
-              - { label: "タイトル", name: "title", widget: "string" }
-              - { label: "本文", name: "body", widget: "text" }
+              - label: "日付"
+                name: "date"
+                widget: "string"
+              - label: "タイトル"
+                name: "title"
+                widget: "string"
+              - label: "本文"
+                name: "body"
+                widget: "text"
 
   - name: "schedule"
     label: "開催予定"
     files:
-      - name: "schedule"
+      - name: "schedule_file"
         label: "開催予定一覧"
         file: "data/schedule.json"
         fields:
           - label: "開催予定一覧"
             name: "items"
             widget: "list"
-            label_singular: "予定"
-            summary: "{{date}} {{title}}"
+            summary: "{{fields.date}} {{fields.title}}"
             fields:
-              - { label: "日にち", name: "date", widget: "string" }
-              - { label: "時間", name: "time", widget: "string", required: false }
-              - { label: "場所", name: "place", widget: "string", required: false }
-              - { label: "内容", name: "title", widget: "string" }
-              - { label: "料金", name: "price", widget: "string", required: false }
-              - { label: "備考", name: "note", widget: "text", required: false }
+              - label: "日にち"
+                name: "date"
+                widget: "string"
+              - label: "時間"
+                name: "time"
+                widget: "string"
+                required: false
+              - label: "場所"
+                name: "place"
+                widget: "string"
+                required: false
+              - label: "内容"
+                name: "title"
+                widget: "string"
+              - label: "料金"
+                name: "price"
+                widget: "string"
+                required: false
+              - label: "備考"
+                name: "note"
+                widget: "text"
+                required: false
 
   - name: "yearly_schedule"
     label: "年間予定"
     files:
-      - name: "yearly"
+      - name: "yearly_file"
         label: "年間予定リスト"
         file: "data/yearly.json"
         fields:
           - label: "年間予定の登録"
             name: "items"
             widget: "list"
-            label_singular: "予定"
-            summary: "{{month}}月: {{title}}"
+            summary: "{{fields.month}}月: {{fields.title}}"
             fields:
-              - { label: "対象の月 (数字のみ)", name: "month", widget: "number", value_type: "int", min: 1, max: 12 }
-              - { label: "予定のタイトル", name: "title", widget: "string" }
-              - { label: "詳細（時間や持ち物など）", name: "detail", widget: "text", required: false }
+              - label: "対象の月 (数字のみ)"
+                name: "month"
+                widget: "number"
+                value_type: "int"
+                min: 1
+                max: 12
+              - label: "予定のタイトル"
+                name: "title"
+                widget: "string"
+              - label: "詳細（時間や持ち物など）"
+                name: "detail"
+                widget: "text"
+                required: false
