@@ -155,47 +155,6 @@
 </footer>
 
 <script>
-// 📢 本日の開催状況を data/status.json から読み込んで表示
-fetch('data/status.json')
-  .then(function(res){ return res.json(); })
-  .then(function(data){
-    var status = (data && data.current) || "🟢 本日開催";
-    document.getElementById('today-status').innerText = status;
-  })
-  .catch(function(){
-    document.getElementById('today-status').innerText = "🟢 本日開催";
-  });
-
-// 📅 年間予定を data/yearly.json から読み込んで「今月分」だけを自動表示
-var currentMonth = new Date().getMonth() + 1; // 現在の月（1〜12）
-document.getElementById('yearly-title').innerText = currentMonth + '月の予定（年間予定より）';
-
-fetch('data/yearly.json')
-  .then(function(res){ return res.json(); })
-  .then(function(data){
-    var items = (data && data.items) || [];
-    var list = document.getElementById('yearly-list');
-    
-    // 今月のデータだけを絞り込む
-    var thisMonthItems = items.filter(function(item){
-      return parseInt(item.month) === currentMonth;
-    });
-
-    if(thisMonthItems.length === 0){
-      list.innerHTML = '<p class="yearly-empty">今月の定期予定はありません。</p>';
-      return;
-    }
-
-    list.innerHTML = thisMonthItems.map(function(item){
-      return '<div class="news-item" style="border-left: 4px solid #a97e4d; padding-left: 10px; margin-bottom: 15px;">' +
-        '<div class="title" style="font-weight: bold; font-size: 1.1rem;">' + (item.title || '') + '</div>' +
-        '<div class="body" style="font-size: 0.9rem; color: #555; white-space: pre-wrap; margin-top: 4px;">' + (item.detail || '') + '</div>' +
-      '</div>';
-    }).join('');
-  })
-  .catch(function(){
-    document.getElementById('yearly-list').innerHTML = '<p class="yearly-empty">年間予定を読み込めませんでした。</p>';
-  });
 
 // お知らせを data/news.json から読み込んで表示
 fetch('data/news.json')
