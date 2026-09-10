@@ -2,43 +2,24 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"
-public_folder: "images"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: "news"
-    label: "お知らせ"
-    files:
-      - name: "news"
-        label: "お知らせ一覧"
-        file: "data/news.json"
-        fields:
-          - label: "お知らせ一覧"
-            name: "items"
-            widget: "list"
-            label_singular: "お知らせ"
-            summary: "{{date}} {{title}}"
-            fields:
-              - { label: "日付", name: "date", widget: "string" }
-              - { label: "タイトル", name: "title", widget: "string" }
-              - { label: "本文", name: "body", widget: "text" }
-
   - name: "schedule"
-    label: "開催予定"
-    files:
-      - name: "schedule"
-        label: "開催予定一覧"
-        file: "data/schedule.json"
-        fields:
-          - label: "開催予定一覧"
-            name: "items"
-            widget: "list"
-            label_singular: "予定"
-            summary: "{{date}} {{title}}"
-            fields:
-              - { label: "日にち", name: "date", widget: "string" }
-              - { label: "時間", name: "time", widget: "string", required: false }
-              - { label: "場所", name: "place", widget: "string", required: false }
-              - { label: "内容", name: "title", widget: "string" }
-              - { label: "料金", name: "price", widget: "string", required: false }
-              - { label: "備考", name: "note", widget: "text", required: false }
+    label: "開催予定一覧"
+    folder: "content/schedule"
+    create: true
+    fields:
+      - {label: "日付", name: "date", widget: "string"}
+      - {label: "タイトル", name: "title", widget: "string"}
+      - {label: "場所", name: "place", widget: "string", required: false}
+
+  - name: "news"
+    label: "お知らせ一覧"
+    folder: "content/news"
+    create: true
+    fields:
+      - {label: "日付", name: "date", widget: "string"}
+      - {label: "タイトル", name: "title", widget: "string"}
+      - {label: "内容", name: "body", widget: "text", required: false}
