@@ -13,7 +13,10 @@ collections:
     fields:
       - {label: "日付", name: "date", widget: "string"}
       - {label: "タイトル", name: "title", widget: "string"}
+      - {label: "時間", name: "time", widget: "string", required: false}
       - {label: "場所", name: "place", widget: "string", required: false}
+      - {label: "料金", name: "price", widget: "string", required: false}
+      - {label: "詳細・備考", name: "body", widget: "text", required: false}
 
   - name: "news"
     label: "お知らせ一覧"
