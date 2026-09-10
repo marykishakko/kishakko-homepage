@@ -8,7 +8,7 @@ public_folder: "/images/uploads"
 collections:
   - name: "schedule"
     label: "開催予定一覧"
-    folder: "content/schedule"
+    folder: "data"
     create: true
     fields:
       - {label: "日付", name: "date", widget: "string"}
@@ -20,7 +20,7 @@ collections:
 
   - name: "news"
     label: "お知らせ一覧"
-    folder: "content/news"
+    folder: "data"
     create: true
     fields:
       - {label: "日付", name: "date", widget: "string"}
